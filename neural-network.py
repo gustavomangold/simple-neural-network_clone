@@ -85,7 +85,7 @@ class NeuralNetwork:
             for o in range(len(self.output_layer.neurons)):
                 d_error_wrt_hidden_neuron_output += pd_errors_wrt_output_neuron_total_net_input[o] * self.output_layer.neurons[o].weights[h]
 
-            # ∂E/∂zⱼ = dE/dyⱼ * ∂zⱼ/∂
+            # gradient
             pd_errors_wrt_hidden_neuron_total_net_input[h] = d_error_wrt_hidden_neuron_output * self.hidden_layer.neurons[h].calculate_pd_total_net_input_wrt_input()
 
         # 3. Update output neuron weights
